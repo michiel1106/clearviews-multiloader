@@ -83,8 +83,8 @@ loom.runs {
         }.files.first()
 
         configureEach {
-            vmArg("-javaagent:$mixinJarFile") // Mixin Hotswap doesn't work on NeoForge, but doesn't hurt to keep
-            vmArg("-XX:+AllowEnhancedClassRedefinition")
+//            vmArg("-javaagent:$mixinJarFile") // Mixin Hotswap doesn't work on NeoForge, but doesn't hurt to keep
+  //          vmArg("-XX:+AllowEnhancedClassRedefinition")
 
             property("mixin.hotSwap", "true")
             property("mixin.debug.export", "true") // Puts mixin outputs in /run/.mixin.out
@@ -135,11 +135,11 @@ dependencies {
     if (loader.isFabric) {
         modImplementation("net.fabricmc:fabric-loader:${deps.fabricLoaderVersion}")!!
         modImplementation("net.fabricmc.fabric-api:fabric-api:${deps.fabricApiVersion}+${mc.version}")
-        modImplementation("dev.isxander:yet-another-config-lib:${deps.yaclVersion}+${mc.version}-${loader.loader}")
+        modImplementation("dev.isxander:yet-another-config-lib:${deps.yaclVersion}-${loader.loader}")
         modImplementation("com.terraformersmc:modmenu:${deps.modmenuVersion}")
     } else if (loader.isNeoforge) {
         "neoForge"("net.neoforged:neoforge:${deps.neoforgeVersion}")
-        implementation("dev.isxander:yet-another-config-lib:${deps.yaclVersion}+${mc.version}-${loader.loader}") { isTransitive = false }
+        implementation("dev.isxander:yet-another-config-lib:${deps.yaclVersion}-${loader.loader}") { isTransitive = false }
     }
 
 }

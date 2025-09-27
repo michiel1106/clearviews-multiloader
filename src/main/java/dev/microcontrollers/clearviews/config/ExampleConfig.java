@@ -1,4 +1,4 @@
-package dev.microcontrollers.examplemod.config;
+package dev.microcontrollers.clearviews.config;
 
 import dev.isxander.yacl3.api.ConfigCategory;
 import dev.isxander.yacl3.api.Option;

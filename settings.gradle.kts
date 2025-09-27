@@ -31,8 +31,10 @@ stonecutter {
 		mc("1.21.4", listOf("fabric", "neoforge"))
 		mc("1.21.5", listOf("fabric", "neoforge"))
 		mc("1.21.6", listOf("fabric", "neoforge"))
+		mc("1.21.7", listOf("fabric", "neoforge"))
+		mc("1.21.8", listOf("fabric", "neoforge"))
 
-		vcsVersion = "1.21.6-fabric"
+		vcsVersion = "1.21.8-fabric"
 	}
 }
 
@@ -42,4 +44,4 @@ dependencyResolutionManagement {
     }
 }
 
-rootProject.name = "ExampleMod"
+rootProject.name = "clearviews"

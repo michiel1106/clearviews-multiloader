@@ -1,7 +1,7 @@
-package dev.microcontrollers.examplemod;
+package dev.microcontrollers.clearviews;
 
 import dev.kikugie.fletching_table.annotation.fabric.Entrypoint;
-import dev.microcontrollers.examplemod.config.ExampleConfig;
+import dev.microcontrollers.clearviews.config.ExampleConfig;
 //? if fabric
 import net.fabricmc.api.ModInitializer;
 //? if neoforge {

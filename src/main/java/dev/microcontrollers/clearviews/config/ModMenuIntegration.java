@@ -1,4 +1,4 @@
-package dev.microcontrollers.examplemod.config;
+package dev.microcontrollers.clearviews.config;
 
 //? if fabric {
 import com.terraformersmc.modmenu.api.ConfigScreenFactory;

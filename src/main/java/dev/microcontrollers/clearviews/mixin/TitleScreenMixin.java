@@ -1,4 +1,4 @@
-package dev.microcontrollers.examplemod.mixin;
+package dev.microcontrollers.clearviews.mixin;
 
 import net.minecraft.client.gui.GuiGraphics;
 import net.minecraft.client.gui.screens.Screen;
