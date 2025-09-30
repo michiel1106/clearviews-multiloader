@@ -83,7 +83,7 @@ loom.runs {
         }.files.first()
 
         configureEach {
-//            vmArg("-javaagent:$mixinJarFile") // Mixin Hotswap doesn't work on NeoForge, but doesn't hurt to keep
+           vmArg("-javaagent:$mixinJarFile") // Mixin Hotswap doesn't work on NeoForge, but doesn't hurt to keep
   //          vmArg("-XX:+AllowEnhancedClassRedefinition")
 
             property("mixin.hotSwap", "true")
