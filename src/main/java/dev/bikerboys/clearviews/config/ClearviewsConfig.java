@@ -29,7 +29,11 @@ public class ClearviewsConfig {
     @SerialEntry public boolean disablePortalOverlay = true;
     @SerialEntry public boolean removeSpyglassBorder = true;
     @SerialEntry public boolean removePumpkinOverlay = true;
-    @SerialEntry public boolean disableLocatorBar = true;
+
+
+    //? if >=1.21.6
+    /*@SerialEntry public boolean disableLocatorBar = true;*/
+
     @SerialEntry public boolean disableVignette = true;
     @SerialEntry public boolean disableBossBar = false;
     @SerialEntry public boolean disablePowderedSnowOverlay = true;
@@ -146,14 +150,15 @@ public class ClearviewsConfig {
                                 .build())
 
 
-
+                        //? if >=1.21.6 {
+                        /*
                         .option(Option.<Boolean>createBuilder()
                                 .name(Component.literal("Disable Locator Bar"))
                                 .description(OptionDescription.of(Component.literal("Disables the locator bar")))
                                 .binding(defaults.disableLocatorBar, () -> config.disableLocatorBar, newVal -> config.disableLocatorBar = newVal)
                                 .controller(TickBoxControllerBuilder::create)
                                 .build())
-
+                        *///?}
 
                         .option(Option.<Boolean>createBuilder()
                                 .name(Component.literal("Disable Vignette"))

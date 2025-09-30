@@ -1,12 +1,25 @@
-package dev.bikerboys.clearviews.mixin.darkness;
+package dev.bikerboys.clearviews.mixin.darkness.above1215;
+
+
+
 
 import com.google.common.collect.Lists;
 import dev.bikerboys.clearviews.config.ClearviewsConfig;
 import net.minecraft.client.Camera;
 import net.minecraft.client.DeltaTracker;
 import net.minecraft.client.multiplayer.ClientLevel;
+
+
+//? if >=1.21.6 {
+/*
 import net.minecraft.client.renderer.fog.FogRenderer;
 import net.minecraft.client.renderer.fog.environment.*;
+
+
+
+import net.minecraft.client.renderer.*;
+
+
 import org.joml.Vector4f;
 import org.spongepowered.asm.mixin.Final;
 import org.spongepowered.asm.mixin.Mixin;
@@ -25,8 +38,10 @@ import java.util.List;
 public interface FogRendererMixin {
 
 
-
     @Accessor("FOG_ENVIRONMENTS")
     List<FogEnvironment> getFogEnviroments();
 
+
 }
+
+ *///?}

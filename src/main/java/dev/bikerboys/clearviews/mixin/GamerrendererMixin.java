@@ -3,12 +3,17 @@ package dev.bikerboys.clearviews.mixin;
 import com.llamalad7.mixinextras.injector.wrapoperation.Operation;
 import com.llamalad7.mixinextras.injector.wrapoperation.WrapOperation;
 import dev.bikerboys.clearviews.config.ClearviewsConfig;
-import dev.bikerboys.clearviews.mixin.darkness.FogRendererMixin;
+
 import net.minecraft.client.DeltaTracker;
 import net.minecraft.client.renderer.GameRenderer;
+//? if >=1.21.6 {
+/*
+import dev.bikerboys.clearviews.mixin.darkness.FogRendererMixin;
 import net.minecraft.client.renderer.fog.FogRenderer;
 import net.minecraft.client.renderer.fog.environment.BlindnessFogEnvironment;
 import net.minecraft.client.renderer.fog.environment.DarknessFogEnvironment;
+ *///?}
+
 import net.minecraft.util.Mth;
 import org.joml.Matrix4f;
 import org.joml.Vector3f;
@@ -32,7 +37,12 @@ public abstract class GamerrendererMixin {
 
     @Shadow private float darkenWorldAmountO;
 
+
+    //? if >=1.21.6 {
+    /*
     @Shadow @Final private FogRenderer fogRenderer;
+   *///?}
+
 
     @Shadow public abstract void renderLevel(DeltaTracker deltaTracker);
 
@@ -63,6 +73,13 @@ public abstract class GamerrendererMixin {
         return original.call(instance, x, y, z);
     }
 
+//? if >=1.21.6 {
+    /*
+     *///?}
+
+
+    //? if >=1.21.6 {
+    /*
     @Inject(method = "renderLevel", at = @At("HEAD"))
     private void changethedarknessandyeahjustremovetheblindnessanddarkness(DeltaTracker deltaTracker, CallbackInfo ci) {
 
@@ -75,6 +92,8 @@ public abstract class GamerrendererMixin {
 
 
     }
+   *///?}
+
 
 
 

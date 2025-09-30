@@ -3,12 +3,6 @@ package dev.bikerboys.clearviews;
 
 
 import dev.bikerboys.clearviews.config.ClearviewsConfig;
-import net.minecraft.client.Minecraft;
-import net.minecraft.world.effect.MobEffects;
-import net.neoforged.fml.ModLoadingContext;
-import net.neoforged.neoforge.client.event.ClientTickEvent;
-import net.neoforged.neoforge.client.gui.IConfigScreenFactory;
-import net.neoforged.neoforge.common.NeoForge;
 
 //? if fabric {
 import net.fabricmc.api.ModInitializer;

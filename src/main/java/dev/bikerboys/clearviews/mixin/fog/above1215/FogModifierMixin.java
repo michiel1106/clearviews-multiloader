@@ -1,11 +1,19 @@
-package dev.bikerboys.clearviews.mixin.fog;
+package dev.bikerboys.clearviews.mixin.fog.above1215;
+
+
 
 
 import dev.bikerboys.clearviews.config.ClearviewsConfig;
 import net.minecraft.client.DeltaTracker;
 import net.minecraft.client.multiplayer.ClientLevel;
+
+//? if >=1.21.6 {
+/*
 import net.minecraft.client.renderer.fog.FogData;
 import net.minecraft.client.renderer.fog.environment.*;
+*///?}
+
+import net.minecraft.client.renderer.*;
 import net.minecraft.core.BlockPos;
 import net.minecraft.world.entity.Entity;
 import org.spongepowered.asm.mixin.Mixin;
@@ -13,6 +21,8 @@ import org.spongepowered.asm.mixin.injection.At;
 import org.spongepowered.asm.mixin.injection.Inject;
 import org.spongepowered.asm.mixin.injection.callback.CallbackInfo;
 
+//? if >=1.21.6 {
+/*
 @Mixin(value = {WaterFogEnvironment.class,
         LavaFogEnvironment.class,
         BlindnessFogEnvironment.class,
@@ -20,8 +30,15 @@ import org.spongepowered.asm.mixin.injection.callback.CallbackInfo;
         AtmosphericFogEnvironment.class,
         DimensionOrBossFogEnvironment.class,
         PowderedSnowFogEnvironment.class})
+*///?}
+
+
 public class FogModifierMixin {
 
+
+
+//? if >=1.21.6 {
+/*
 
     @Inject(method = "setupFog", at = @At("TAIL"))
     private void modifyFog(FogData fogData, Entity entity, BlockPos pos, ClientLevel level, float renderDistance, DeltaTracker deltaTracker, CallbackInfo ci) {
@@ -102,11 +119,13 @@ public class FogModifierMixin {
     }
 
 
+
+*///?}
+
+
     private ClearviewsConfig getInstance() {
         return ClearviewsConfig.CONFIG.instance();
     }
 
-
-
-
 }
+
