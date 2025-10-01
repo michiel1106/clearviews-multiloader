@@ -50,6 +50,19 @@ public class ClearviewsConfig {
     @SerialEntry public float lavaFogStart = 1000f;
     @SerialEntry public float lavaFogEnd = 1000f;
 
+    //? if >=1.21.6 {
+                        
+    /*@SerialEntry public boolean useBlindnessFog = true;
+    @SerialEntry public float blindnessFogStart = 1000f;
+    @SerialEntry public float blindnessFogEnd = 1000f;
+
+    @SerialEntry public boolean useDarknessFog = true;
+    @SerialEntry public float darknessFogStart = 1000f;
+    @SerialEntry public float darknessFogEnd = 1000f;
+
+
+    *///?} else {
+    
     @SerialEntry public boolean useBlindnessFog = true;
     @SerialEntry public float blindnessFogStart = 1000f;
     @SerialEntry public float blindnessFogEnd = 1000f;
@@ -58,6 +71,8 @@ public class ClearviewsConfig {
     @SerialEntry public float darknessFogStart = 1000f;
     @SerialEntry public float darknessFogEnd = 1000f;
 
+
+          //?}
     @SerialEntry public boolean useAtmosphericFog = true;
     @SerialEntry public float atmosphericFogStart = 1000f;
     @SerialEntry public float atmosphericFogEnd = 1000f;
@@ -150,6 +165,7 @@ public class ClearviewsConfig {
                                 .build())
 
 
+
                         //? if >=1.21.6 {
                         
                         /*.option(Option.<Boolean>createBuilder()
@@ -194,13 +210,17 @@ public class ClearviewsConfig {
                                 defaults.lavaFogStart, () -> config.lavaFogStart, v -> config.lavaFogStart = v,
                                 defaults.lavaFogEnd, () -> config.lavaFogEnd, v -> config.lavaFogEnd = v))
 
-                        .group(makeFogGroup("Blindness Fog", defaults.useBlindnessFog, () -> config.useBlindnessFog, v -> config.useBlindnessFog = v,
+
+                        //? if >=1.21.6 {
+                        
+                        /*.group(makeFogGroup("Blindness Fog", defaults.useBlindnessFog, () -> config.useBlindnessFog, v -> config.useBlindnessFog = v,
                                 defaults.blindnessFogStart, () -> config.blindnessFogStart, v -> config.blindnessFogStart = v,
                                 defaults.blindnessFogEnd, () -> config.blindnessFogEnd, v -> config.blindnessFogEnd = v))
 
                         .group(makeFogGroup("Darkness Fog", defaults.useDarknessFog, () -> config.useDarknessFog, v -> config.useDarknessFog = v,
                                 defaults.darknessFogStart, () -> config.darknessFogStart, v -> config.darknessFogStart = v,
                                 defaults.darknessFogEnd, () -> config.darknessFogEnd, v -> config.darknessFogEnd = v))
+                        *///?}
 
                         .group(makeFogGroup("Atmospheric Fog", defaults.useAtmosphericFog, () -> config.useAtmosphericFog, v -> config.useAtmosphericFog = v,
                                 defaults.atmosphericFogStart, () -> config.atmosphericFogStart, v -> config.atmosphericFogStart = v,

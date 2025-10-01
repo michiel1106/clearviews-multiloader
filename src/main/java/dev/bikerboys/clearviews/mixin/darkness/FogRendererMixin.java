@@ -28,7 +28,7 @@ public interface FogRendererMixin {
     List<FogEnvironment> getFogEnviroments();
     *///?}
 
-    //? if 1.21.5 {
+    //? if <=1.21.5 {
     
 
     @Accessor("MOB_EFFECT_FOG")

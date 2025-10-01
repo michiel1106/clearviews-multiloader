@@ -81,6 +81,7 @@ public abstract class GamerrendererMixin {
 
     //? if >=1.21.6 {
     
+    
     /*@Inject(method = "renderLevel", at = @At("HEAD"))
     private void changethedarknessandyeahjustremovetheblindnessanddarkness(DeltaTracker deltaTracker, CallbackInfo ci) {
 

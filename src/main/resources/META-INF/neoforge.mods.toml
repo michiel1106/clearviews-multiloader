@@ -11,8 +11,7 @@ authors = "Bikerboys"
 description = "${description}"
 logoFile = "assets/${id}/icon.png"
 
-[[accessTransformers]]
-file="accesstransformers/${at_file}"
+
 
 [["dependencies.${id}"]]
 modId = "neoforge"
