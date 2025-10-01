@@ -83,7 +83,7 @@ loom {
     }
 
     runConfigs.remove(runConfigs["server"]) // Removes server run configs
-    accessWidenerPath = parent.file("src/main/resources/accesswideners/$accesswidener")
+    accessWidenerPath = parent!!.file("src/main/resources/accesswideners/$accesswidener")
 
 }
 
