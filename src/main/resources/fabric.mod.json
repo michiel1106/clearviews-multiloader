@@ -17,6 +17,7 @@
 	"license": "${license}",
 	"icon": "assets/${id}/icon.png",
 	"environment": "client",
+	"accessWidener": "accesswideners/${aw_file}",
 	"depends": {
 		"fabricloader": ">=${fabric_loader_version}",
 		"minecraft": "${mcdep}",

@@ -23,6 +23,7 @@ class ModData {
     val discord = property("mod.discord")
 }
 
+
 class Dependencies {
     val neoforgeVersion = property("deps.neoforge_version")
     val fabricLoaderVersion = property("deps.fabric_loader_version")
@@ -50,6 +51,14 @@ val mod = ModData()
 val deps = Dependencies()
 val loader = LoaderData()
 
+val minecraft = stonecutter.current.version
+val accesswidener = when {
+    stonecutter.eval(minecraft, "1.21.5") -> "clearviews-1.21.5.accesswidener"
+   // stonecutter.eval(minecraft, ">=1.20") -> "1.20.accesswidener"
+    else -> "fallback.accesswidener"
+}
+
+
 version = "${mod.version}+${mc.version}-${loader.loader}"
 group = mod.group
 base { archivesName.set(mod.id) }
@@ -66,12 +75,16 @@ blossom {
 loom {
     silentMojangMappingsLicense()
 
+
+
     runConfigs.all {
         ideConfigGenerated(stonecutter.current.isActive)
         runDir = "../../run" // This sets the run folder for all mc versions to the same folder. Remove this line if you want individual run folders.
     }
 
     runConfigs.remove(runConfigs["server"]) // Removes server run configs
+    accessWidenerPath = parent.file("src/main/resources/accesswideners/$accesswidener")
+
 }
 
 loom.runs {
@@ -262,6 +275,13 @@ tasks.processResources {
     filesMatching("**/lang/en_us.json") { // Defaults description to English translation
         expand(props)
         filteringCharset = "UTF-8"
+    }
+
+    filesMatching("fabric.mod.json") {
+        expand(mapOf(
+            // other properties
+            "aw_file" to accesswidener,
+        ))
     }
 
     if (loader.isFabric) {
