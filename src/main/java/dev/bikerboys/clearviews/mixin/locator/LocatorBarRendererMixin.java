@@ -10,8 +10,8 @@ import net.minecraft.client.gui.Gui;
 
 import net.minecraft.client.gui.GuiGraphics;
 //? if >=1.21.6 {
-/*
-import net.minecraft.client.gui.contextualbar.LocatorBarRenderer;
+
+/*import net.minecraft.client.gui.contextualbar.LocatorBarRenderer;
 import net.minecraft.client.waypoints.ClientWaypointManager;
 
 *///?}

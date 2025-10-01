@@ -5,14 +5,15 @@ import com.llamalad7.mixinextras.injector.wrapoperation.WrapOperation;
 import dev.bikerboys.clearviews.config.ClearviewsConfig;
 
 import net.minecraft.client.DeltaTracker;
-import net.minecraft.client.renderer.GameRenderer;
+import net.minecraft.client.renderer.*;
 //? if >=1.21.6 {
-/*
-import dev.bikerboys.clearviews.mixin.darkness.FogRendererMixin;
-import net.minecraft.client.renderer.fog.FogRenderer;
+
+/*import net.minecraft.client.renderer.fog.FogRenderer;
 import net.minecraft.client.renderer.fog.environment.BlindnessFogEnvironment;
 import net.minecraft.client.renderer.fog.environment.DarknessFogEnvironment;
  *///?}
+
+import dev.bikerboys.clearviews.mixin.darkness.FogRendererMixin;
 
 import net.minecraft.util.Mth;
 import org.joml.Matrix4f;
@@ -39,8 +40,8 @@ public abstract class GamerrendererMixin {
 
 
     //? if >=1.21.6 {
-    /*
-    @Shadow @Final private FogRenderer fogRenderer;
+    
+    /*@Shadow @Final private FogRenderer fogRenderer;
    *///?}
 
 
@@ -74,13 +75,13 @@ public abstract class GamerrendererMixin {
     }
 
 //? if >=1.21.6 {
-    /*
-     *///?}
+    
+     //?}
 
 
     //? if >=1.21.6 {
-    /*
-    @Inject(method = "renderLevel", at = @At("HEAD"))
+    
+    /*@Inject(method = "renderLevel", at = @At("HEAD"))
     private void changethedarknessandyeahjustremovetheblindnessanddarkness(DeltaTracker deltaTracker, CallbackInfo ci) {
 
         if (ClearviewsConfig.CONFIG.instance().disableDarkness) {
@@ -93,6 +94,10 @@ public abstract class GamerrendererMixin {
 
     }
    *///?}
+
+
+
+
 
 
 

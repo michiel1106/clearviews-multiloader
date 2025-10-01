@@ -151,8 +151,8 @@ public class ClearviewsConfig {
 
 
                         //? if >=1.21.6 {
-                        /*
-                        .option(Option.<Boolean>createBuilder()
+                        
+                        /*.option(Option.<Boolean>createBuilder()
                                 .name(Component.literal("Disable Locator Bar"))
                                 .description(OptionDescription.of(Component.literal("Disables the locator bar")))
                                 .binding(defaults.disableLocatorBar, () -> config.disableLocatorBar, newVal -> config.disableLocatorBar = newVal)

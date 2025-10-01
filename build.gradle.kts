@@ -259,6 +259,7 @@ tasks.processResources {
         put("kofi", mod.kofi)
         put("discord", mod.discord)
         put("yacl_version", deps.yaclVersion)
+        put("aw_file", accesswidener)
 
         if (loader.isFabric) {
             put("fabric_loader_version", deps.fabricLoaderVersion)
@@ -277,12 +278,15 @@ tasks.processResources {
         filteringCharset = "UTF-8"
     }
 
+    /*
     filesMatching("fabric.mod.json") {
         expand(mapOf(
             // other properties
             "aw_file" to accesswidener,
         ))
     }
+
+     */
 
     if (loader.isFabric) {
         filesMatching("fabric.mod.json") { expand(props) }
