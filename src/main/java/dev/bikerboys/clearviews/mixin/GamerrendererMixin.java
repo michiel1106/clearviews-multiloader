@@ -32,13 +32,6 @@ import org.spongepowered.asm.mixin.injection.callback.CallbackInfoReturnable;
 @Debug(export = true)
 public abstract class GamerrendererMixin {
 
-    @Shadow private float spinningEffectTime;
-
-    @Shadow private float spinningEffectSpeed;
-
-    @Shadow private float darkenWorldAmountO;
-
-
     //? if >=1.21.6 {
     
     /*@Shadow @Final private FogRenderer fogRenderer;
