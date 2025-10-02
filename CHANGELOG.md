@@ -1,1 +1,1 @@
-Write a changelog in here for a version before publishing it via the publishMods task
+I changed literally everything around. So yeah, enjoy the multi loader versions and the new UI and stuff.

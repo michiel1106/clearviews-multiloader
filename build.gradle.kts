@@ -54,6 +54,10 @@ val loader = LoaderData()
 val minecraft = stonecutter.current.version
 val accesswidener = when {
     stonecutter.eval(minecraft, "1.21.5") -> "clearviews-1.21.5.accesswidener"
+    stonecutter.eval(minecraft, "1.21.4") -> "clearviews-1.21.4.accesswidener"
+    stonecutter.eval(minecraft, "1.21.3") -> "clearviews-1.21.3.accesswidener"
+    stonecutter.eval(minecraft, "1.21.2") -> "clearviews-1.21.2.accesswidener"
+    stonecutter.eval(minecraft, "1.21.1") -> "clearviews-1.21.1.accesswidener"
    // stonecutter.eval(minecraft, ">=1.20") -> "1.20.accesswidener"
     else -> "fallback.accesswidener"
 }

@@ -11,10 +11,22 @@ import com.mojang.blaze3d.buffers.Std140Builder;
 
 import com.llamalad7.mixinextras.injector.wrapoperation.*;
 import com.mojang.blaze3d.shaders.*;
+
 import net.minecraft.client.*;
 import net.minecraft.client.renderer.*;
 
  //?}
+
+
+//? if 1.21.1 {
+import com.mojang.blaze3d.systems.*;
+
+//?}
+
+//? if neoforge && 1.21.1 {
+import net.neoforged.neoforge.client.*;
+
+//?}
 
 
 
@@ -24,6 +36,7 @@ import dev.bikerboys.clearviews.config.ClearviewsConfig;
 import net.minecraft.world.effect.*;
 import net.minecraft.world.entity.*;
 import net.minecraft.world.level.material.*;
+
 
 import org.joml.Vector4f;
 import org.spongepowered.asm.mixin.*;
@@ -67,10 +80,10 @@ public class FogRendererMixin {
 
  *///?}
 
-//? if <=1.21.5 {
+//? if <=1.21.5 && >=1.21.3 {
 
 
-    @Shadow @Final private static List<FogRenderer.MobEffectFogFunction> MOB_EFFECT_FOG;
+    /*@Shadow @Final private static List<FogRenderer.MobEffectFogFunction> MOB_EFFECT_FOG;
 
     @Inject(method = "setupFog", at = @At("HEAD"), cancellable = true)
     private static void alwaysSpectatorFog(Camera camera, FogRenderer.FogMode fogMode, Vector4f color, float renderDistance, boolean isFoggy, float partialTick, CallbackInfoReturnable<FogParameters> cir) {
@@ -117,7 +130,99 @@ public class FogRendererMixin {
     }
 
 
- //?}
+ *///?}
+
+
+
+//? if 1.21.1 {
+
+    @Shadow @Final private static List<FogRenderer.MobEffectFogFunction> MOB_EFFECT_FOG;
+
+    @Inject(method = "setupFog", at = @At("HEAD"), cancellable = true)
+    private static void alwaysSpectatorFog(Camera camera, FogRenderer.FogMode fogMode, float farPlaneDistance, boolean shouldCreateFog, float partialTick, CallbackInfo cir) {
+        // Force spectator fog settings
+
+
+        FogShape fogShape = FogShape.CYLINDER;
+        FogType fogType = camera.getFluidInCamera();
+
+
+        if (ClearviewsConfig.CONFIG.instance().useRenderDistanceFog) {
+            if (fogType.equals(FogType.NONE)) {
+                if (fogMode.equals(FogRenderer.FogMode.FOG_SKY) || fogMode.equals(FogRenderer.FogMode.FOG_TERRAIN)) {
+
+                    if (!(Minecraft.getInstance().player.hasEffect(MobEffects.DARKNESS) || Minecraft.getInstance().player.hasEffect(MobEffects.BLINDNESS))) {
+
+                        RenderSystem.setShaderFogStart(getInstance().renderDistanceFogStart);
+                        RenderSystem.setShaderFogEnd(getInstance().renderDistanceFogEnd);
+                        RenderSystem.setShaderFogShape(fogShape);
+
+                        //? if neoforge && 1.21.1 {
+                        ClientHooks.onFogRender(fogMode, fogType, camera, partialTick, farPlaneDistance, getInstance().renderDistanceFogStart, getInstance().renderDistanceFogEnd, fogShape);
+                        //?}
+
+                        cir.cancel();
+
+                    }
+                }
+            }
+        }
+
+        if (ClearviewsConfig.CONFIG.instance().usePowderSnowFog) {
+            if (fogType.equals(FogType.POWDER_SNOW)) {
+
+                RenderSystem.setShaderFogStart(getInstance().powderSnowFogStart);
+                RenderSystem.setShaderFogEnd(getInstance().powderSnowFogEnd);
+                RenderSystem.setShaderFogShape(fogShape);
+
+                //? if neoforge && 1.21.1 {
+                ClientHooks.onFogRender(fogMode, fogType, camera, partialTick, farPlaneDistance, getInstance().powderSnowFogStart, getInstance().powderSnowFogEnd, fogShape);
+                //?}
+
+                cir.cancel();
+            }
+        }
+
+        if (ClearviewsConfig.CONFIG.instance().useLavaFog) {
+            if (fogType.equals(FogType.LAVA)) {
+
+                RenderSystem.setShaderFogStart(getInstance().lavaFogStart);
+                RenderSystem.setShaderFogEnd(getInstance().lavaFogEnd);
+                RenderSystem.setShaderFogShape(fogShape);
+
+                //? if neoforge && 1.21.1 {
+                ClientHooks.onFogRender(fogMode, fogType, camera, partialTick, farPlaneDistance, getInstance().lavaFogStart, getInstance().lavaFogEnd, fogShape);
+                //?}
+
+                cir.cancel();
+            }
+        }
+
+        if (ClearviewsConfig.CONFIG.instance().useWaterFog) {
+            if (fogType.equals(FogType.WATER)) {
+
+                RenderSystem.setShaderFogStart(getInstance().waterFogStart);
+                RenderSystem.setShaderFogEnd(getInstance().waterFogEnd);
+                RenderSystem.setShaderFogShape(fogShape);
+
+                //? if neoforge && 1.21.1 {
+                ClientHooks.onFogRender(fogMode, fogType, camera, partialTick, farPlaneDistance, getInstance().waterFogStart, getInstance().waterFogEnd, fogShape);
+                //?}
+
+                cir.cancel();
+            }
+        }
+
+    }
+
+    private static ClearviewsConfig getInstance() {
+        return ClearviewsConfig.CONFIG.instance();
+    }
+
+
+         
+
+    //?}
 
 
     //? if <=1.21.5 {
