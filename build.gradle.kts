@@ -174,8 +174,11 @@ val curseforgeId = findProperty("publish.curseforge")?.toString()?.takeIf { it.i
 // modrinth.token=
 // curseforge.token=
 publishMods {
-    file = project.tasks.remapJar.get().archiveFile
 
+    println(property("publish.modrinth").toString() + " aaaaa")
+    println(System.getenv("MODRINTH_TOKEN") + " a")
+    file = project.tasks.remapJar.get().archiveFile
+    println("MODRINTH_TOKEN = '${System.getenv("MODRINTH_TOKEN")}'")
     displayName = "${mod.name} ${mod.version}"
     this.version = mod.version.toString()
     changelog = project.rootProject.file("CHANGELOG.md").takeIf { it.exists() }?.readText() ?: "No changelog provided."
@@ -187,8 +190,11 @@ publishMods {
 
     if (modrinthId != null) {
         modrinth {
+
             projectId = property("publish.modrinth").toString()
-            accessToken = findProperty("modrinth.token").toString()
+            accessToken = ""
+
+
 
             if (rangeRegex.matches(mc.dep)) {
                 val match = rangeRegex.find(mc.dep)!!
@@ -216,7 +222,7 @@ publishMods {
     if (curseforgeId != null) {
         curseforge {
             projectId = property("publish.curseforge").toString()
-            accessToken = findProperty("curseforge.token").toString()
+            accessToken = ""
 
             if (rangeRegex.matches(mc.dep)) {
                 val match = rangeRegex.find(mc.dep)!!

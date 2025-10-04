@@ -12,16 +12,6 @@ public class LightTextureMixin {
 
 
 
-    @WrapOperation(method = "updateLightTexture", at = @At(value = "INVOKE", target = "Ljava/lang/Double;floatValue()F"))
-    private float getthatdarknesouttahere(Double instance, Operation<Float> original) {
-
-        if (ClearviewsConfig.CONFIG.instance().disableDarkness) {
-            return 0.0f;
-        }
-
-
-        return original.call(instance);
-    }
 
 
 }

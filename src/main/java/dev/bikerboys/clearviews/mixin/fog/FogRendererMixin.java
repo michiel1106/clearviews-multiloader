@@ -24,11 +24,11 @@ import com.mojang.blaze3d.systems.*;
 //?}
 
 //? if neoforge && 1.21.1 {
-import net.neoforged.neoforge.client.*;
+/*import net.neoforged.neoforge.client.*;
 
-//?}
+*///?}
 
-
+import java.nio.*;
 
 import dev.bikerboys.clearviews.config.ClearviewsConfig;
 
@@ -43,6 +43,7 @@ import org.spongepowered.asm.mixin.*;
 import org.spongepowered.asm.mixin.injection.At;
 import org.spongepowered.asm.mixin.injection.Inject;
 import org.spongepowered.asm.mixin.injection.callback.*;
+
 
 import java.util.*;
 import java.util.function.*;
@@ -158,8 +159,8 @@ public class FogRendererMixin {
                         RenderSystem.setShaderFogShape(fogShape);
 
                         //? if neoforge && 1.21.1 {
-                        ClientHooks.onFogRender(fogMode, fogType, camera, partialTick, farPlaneDistance, getInstance().renderDistanceFogStart, getInstance().renderDistanceFogEnd, fogShape);
-                        //?}
+                        /*ClientHooks.onFogRender(fogMode, fogType, camera, partialTick, farPlaneDistance, getInstance().renderDistanceFogStart, getInstance().renderDistanceFogEnd, fogShape);
+                        *///?}
 
                         cir.cancel();
 
@@ -176,8 +177,8 @@ public class FogRendererMixin {
                 RenderSystem.setShaderFogShape(fogShape);
 
                 //? if neoforge && 1.21.1 {
-                ClientHooks.onFogRender(fogMode, fogType, camera, partialTick, farPlaneDistance, getInstance().powderSnowFogStart, getInstance().powderSnowFogEnd, fogShape);
-                //?}
+                /*ClientHooks.onFogRender(fogMode, fogType, camera, partialTick, farPlaneDistance, getInstance().powderSnowFogStart, getInstance().powderSnowFogEnd, fogShape);
+                *///?}
 
                 cir.cancel();
             }
@@ -191,8 +192,8 @@ public class FogRendererMixin {
                 RenderSystem.setShaderFogShape(fogShape);
 
                 //? if neoforge && 1.21.1 {
-                ClientHooks.onFogRender(fogMode, fogType, camera, partialTick, farPlaneDistance, getInstance().lavaFogStart, getInstance().lavaFogEnd, fogShape);
-                //?}
+                /*ClientHooks.onFogRender(fogMode, fogType, camera, partialTick, farPlaneDistance, getInstance().lavaFogStart, getInstance().lavaFogEnd, fogShape);
+                *///?}
 
                 cir.cancel();
             }
@@ -206,8 +207,8 @@ public class FogRendererMixin {
                 RenderSystem.setShaderFogShape(fogShape);
 
                 //? if neoforge && 1.21.1 {
-                ClientHooks.onFogRender(fogMode, fogType, camera, partialTick, farPlaneDistance, getInstance().waterFogStart, getInstance().waterFogEnd, fogShape);
-                //?}
+                /*ClientHooks.onFogRender(fogMode, fogType, camera, partialTick, farPlaneDistance, getInstance().waterFogStart, getInstance().waterFogEnd, fogShape);
+                *///?}
 
                 cir.cancel();
             }
