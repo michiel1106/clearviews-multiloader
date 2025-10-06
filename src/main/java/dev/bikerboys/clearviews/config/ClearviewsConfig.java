@@ -32,7 +32,7 @@ public class ClearviewsConfig {
 
 
     //? if >=1.21.6
-    /*@SerialEntry public boolean disableLocatorBar = true;*/
+    @SerialEntry public boolean disableLocatorBar = true;
 
     @SerialEntry public boolean disableVignette = true;
     @SerialEntry public boolean disableBossBar = false;
@@ -52,17 +52,6 @@ public class ClearviewsConfig {
 
     //? if >=1.21.6 {
                         
-    /*@SerialEntry public boolean useBlindnessFog = true;
-    @SerialEntry public float blindnessFogStart = 1000f;
-    @SerialEntry public float blindnessFogEnd = 1000f;
-
-    @SerialEntry public boolean useDarknessFog = true;
-    @SerialEntry public float darknessFogStart = 1000f;
-    @SerialEntry public float darknessFogEnd = 1000f;
-
-
-    *///?} else {
-    
     @SerialEntry public boolean useBlindnessFog = true;
     @SerialEntry public float blindnessFogStart = 1000f;
     @SerialEntry public float blindnessFogEnd = 1000f;
@@ -72,7 +61,18 @@ public class ClearviewsConfig {
     @SerialEntry public float darknessFogEnd = 1000f;
 
 
-          //?}
+    //?} else {
+    
+    /*@SerialEntry public boolean useBlindnessFog = true;
+    @SerialEntry public float blindnessFogStart = 1000f;
+    @SerialEntry public float blindnessFogEnd = 1000f;
+
+    @SerialEntry public boolean useDarknessFog = true;
+    @SerialEntry public float darknessFogStart = 1000f;
+    @SerialEntry public float darknessFogEnd = 1000f;
+
+
+          *///?}
     @SerialEntry public boolean useAtmosphericFog = true;
     @SerialEntry public float atmosphericFogStart = 1000f;
     @SerialEntry public float atmosphericFogEnd = 1000f;
@@ -168,13 +168,13 @@ public class ClearviewsConfig {
 
                         //? if >=1.21.6 {
                         
-                        /*.option(Option.<Boolean>createBuilder()
+                        .option(Option.<Boolean>createBuilder()
                                 .name(Component.literal("Disable Locator Bar"))
                                 .description(OptionDescription.of(Component.literal("Disables the locator bar")))
                                 .binding(defaults.disableLocatorBar, () -> config.disableLocatorBar, newVal -> config.disableLocatorBar = newVal)
                                 .controller(TickBoxControllerBuilder::create)
                                 .build())
-                        *///?}
+                        //?}
 
                         .option(Option.<Boolean>createBuilder()
                                 .name(Component.literal("Disable Vignette"))
@@ -213,14 +213,14 @@ public class ClearviewsConfig {
 
                         //? if >=1.21.6 {
                         
-                        /*.group(makeFogGroup("Blindness Fog", defaults.useBlindnessFog, () -> config.useBlindnessFog, v -> config.useBlindnessFog = v,
+                        .group(makeFogGroup("Blindness Fog", defaults.useBlindnessFog, () -> config.useBlindnessFog, v -> config.useBlindnessFog = v,
                                 defaults.blindnessFogStart, () -> config.blindnessFogStart, v -> config.blindnessFogStart = v,
                                 defaults.blindnessFogEnd, () -> config.blindnessFogEnd, v -> config.blindnessFogEnd = v))
 
                         .group(makeFogGroup("Darkness Fog", defaults.useDarknessFog, () -> config.useDarknessFog, v -> config.useDarknessFog = v,
                                 defaults.darknessFogStart, () -> config.darknessFogStart, v -> config.darknessFogStart = v,
                                 defaults.darknessFogEnd, () -> config.darknessFogEnd, v -> config.darknessFogEnd = v))
-                        *///?}
+                        //?}
 
                         .group(makeFogGroup("Atmospheric Fog", defaults.useAtmosphericFog, () -> config.useAtmosphericFog, v -> config.useAtmosphericFog = v,
                                 defaults.atmosphericFogStart, () -> config.atmosphericFogStart, v -> config.atmosphericFogStart = v,

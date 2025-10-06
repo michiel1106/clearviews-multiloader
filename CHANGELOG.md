@@ -1,1 +1,1 @@
-I changed literally everything around. So yeah, enjoy the multi loader versions and the new UI and stuff.
+- Fixed a bug where gamma just didnt work. that includes any fullbright/gamma mods.

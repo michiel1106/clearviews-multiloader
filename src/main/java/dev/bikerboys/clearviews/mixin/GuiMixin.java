@@ -34,7 +34,7 @@ public class GuiMixin  {
 
     //? if >=1.21.3 {
 
-    /*@WrapOperation(method = "renderCameraOverlays", at = @At(value = "INVOKE", target = "Ljava/util/Optional;isPresent()Z", ordinal = 0))
+    @WrapOperation(method = "renderCameraOverlays", at = @At(value = "INVOKE", target = "Ljava/util/Optional;isPresent()Z", ordinal = 0))
     private boolean stoppumpkin(Optional instance, Operation<Boolean> original) {
         if (ClearviewsConfig.CONFIG.instance().removePumpkinOverlay) {
             return false;
@@ -42,12 +42,12 @@ public class GuiMixin  {
         return original.call(instance);
     }
     
-    *///?}
+    //?}
 
 
     //? if 1.21.1 {
 
-    @WrapOperation(method = "renderCameraOverlays", at = @At(value = "INVOKE", target = "Lnet/minecraft/world/item/ItemStack;is(Lnet/minecraft/world/item/Item;)Z"))
+    /*@WrapOperation(method = "renderCameraOverlays", at = @At(value = "INVOKE", target = "Lnet/minecraft/world/item/ItemStack;is(Lnet/minecraft/world/item/Item;)Z"))
     private boolean stoppumpkin(ItemStack instance, Item item, Operation<Boolean> original) {
         if (ClearviewsConfig.CONFIG.instance().removePumpkinOverlay) {
             return false;
@@ -56,7 +56,7 @@ public class GuiMixin  {
     }
 
 
-    //?}
+    *///?}
 
 
     @Inject(method = "renderTextureOverlay", at = @At(value = "HEAD"), cancellable = true)
@@ -71,23 +71,23 @@ public class GuiMixin  {
 
 
     //? if >=1.21.3 {
-    /*@Inject(method = "renderConfusionOverlay", at = @At("HEAD"), cancellable = true)
-    private void stopNauseaOverlay(GuiGraphics guiGraphics, float intensity, CallbackInfo ci) {
-        if (ClearviewsConfig.CONFIG.instance().disableNausea) {
-            ci.cancel();
-        }
-    }
-    *///?}
-
-    //? if 1.21.1 {
-
-    @Inject(method = "renderPortalOverlay", at = @At("HEAD"), cancellable = true)
+    @Inject(method = "renderConfusionOverlay", at = @At("HEAD"), cancellable = true)
     private void stopNauseaOverlay(GuiGraphics guiGraphics, float intensity, CallbackInfo ci) {
         if (ClearviewsConfig.CONFIG.instance().disableNausea) {
             ci.cancel();
         }
     }
     //?}
+
+    //? if 1.21.1 {
+
+    /*@Inject(method = "renderPortalOverlay", at = @At("HEAD"), cancellable = true)
+    private void stopNauseaOverlay(GuiGraphics guiGraphics, float intensity, CallbackInfo ci) {
+        if (ClearviewsConfig.CONFIG.instance().disableNausea) {
+            ci.cancel();
+        }
+    }
+    *///?}
 
     @Inject(method = "renderPortalOverlay", at = @At("HEAD"), cancellable = true)
     private void stopPortalOverlay(GuiGraphics guiGraphics, float intensity, CallbackInfo ci) {

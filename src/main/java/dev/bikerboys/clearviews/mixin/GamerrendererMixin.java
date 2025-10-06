@@ -8,10 +8,10 @@ import net.minecraft.client.DeltaTracker;
 import net.minecraft.client.renderer.*;
 //? if >=1.21.6 {
 
-/*import net.minecraft.client.renderer.fog.FogRenderer;
+import net.minecraft.client.renderer.fog.FogRenderer;
 import net.minecraft.client.renderer.fog.environment.BlindnessFogEnvironment;
 import net.minecraft.client.renderer.fog.environment.DarknessFogEnvironment;
- *///?}
+ //?}
 
 import dev.bikerboys.clearviews.mixin.darkness.FogRendererMixin;
 
@@ -34,8 +34,8 @@ public abstract class GamerrendererMixin {
 
     //? if >=1.21.6 {
     
-    /*@Shadow @Final private FogRenderer fogRenderer;
-   *///?}
+    @Shadow @Final private FogRenderer fogRenderer;
+   //?}
 
 
     @Shadow public abstract void renderLevel(DeltaTracker deltaTracker);
@@ -75,7 +75,7 @@ public abstract class GamerrendererMixin {
     //? if >=1.21.6 {
     
     
-    /*@Inject(method = "renderLevel", at = @At("HEAD"))
+    @Inject(method = "renderLevel", at = @At("HEAD"))
     private void changethedarknessandyeahjustremovetheblindnessanddarkness(DeltaTracker deltaTracker, CallbackInfo ci) {
 
         if (ClearviewsConfig.CONFIG.instance().disableDarkness) {
@@ -87,7 +87,7 @@ public abstract class GamerrendererMixin {
 
 
     }
-   *///?}
+   //?}
 
 
 

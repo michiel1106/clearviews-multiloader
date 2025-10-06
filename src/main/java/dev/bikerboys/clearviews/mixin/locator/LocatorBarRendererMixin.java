@@ -11,10 +11,10 @@ import net.minecraft.client.gui.Gui;
 import net.minecraft.client.gui.GuiGraphics;
 //? if >=1.21.6 {
 
-/*import net.minecraft.client.gui.contextualbar.LocatorBarRenderer;
+import net.minecraft.client.gui.contextualbar.LocatorBarRenderer;
 import net.minecraft.client.waypoints.ClientWaypointManager;
 
-*///?}
+//?}
 
 
 import org.spongepowered.asm.mixin.Mixin;
@@ -28,7 +28,7 @@ public class LocatorBarRendererMixin {
 
     //? if >=1.21.6 {
 
-    /*@WrapOperation(method = "nextContextualInfoState", at = @At(value = "INVOKE", target = "Lnet/minecraft/client/waypoints/ClientWaypointManager;hasWaypoints()Z"))
+    @WrapOperation(method = "nextContextualInfoState", at = @At(value = "INVOKE", target = "Lnet/minecraft/client/waypoints/ClientWaypointManager;hasWaypoints()Z"))
     private boolean stopthatpldease(ClientWaypointManager instance, Operation<Boolean> original) {
         if (ClearviewsConfig.CONFIG.instance().disableLocatorBar) {
             return false;
@@ -36,7 +36,7 @@ public class LocatorBarRendererMixin {
         return original.call(instance);
     }
 
-     *///?}
+     //?}
 
 
 }

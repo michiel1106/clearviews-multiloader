@@ -175,8 +175,7 @@ val curseforgeId = findProperty("publish.curseforge")?.toString()?.takeIf { it.i
 // curseforge.token=
 publishMods {
 
-    println(property("publish.modrinth").toString() + " aaaaa")
-    println(System.getenv("MODRINTH_TOKEN") + " a")
+
     file = project.tasks.remapJar.get().archiveFile
     println("MODRINTH_TOKEN = '${System.getenv("MODRINTH_TOKEN")}'")
     displayName = "${mod.name} ${mod.version}"

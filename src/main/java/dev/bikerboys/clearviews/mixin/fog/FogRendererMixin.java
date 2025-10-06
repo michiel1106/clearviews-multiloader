@@ -3,25 +3,25 @@ package dev.bikerboys.clearviews.mixin.fog;
 
 //? if >=1.21.6 {
 
-/*import net.minecraft.client.renderer.fog.FogRenderer;
+import net.minecraft.client.renderer.fog.FogRenderer;
 import com.mojang.blaze3d.buffers.Std140Builder;
- *///?}
+ //?}
 
 //? if <=1.21.5 {
 
-import com.llamalad7.mixinextras.injector.wrapoperation.*;
+/*import com.llamalad7.mixinextras.injector.wrapoperation.*;
 import com.mojang.blaze3d.shaders.*;
 
 import net.minecraft.client.*;
 import net.minecraft.client.renderer.*;
 
- //?}
+ *///?}
 
 
 //? if 1.21.1 {
-import com.mojang.blaze3d.systems.*;
+/*import com.mojang.blaze3d.systems.*;
 
-//?}
+*///?}
 
 //? if neoforge && 1.21.1 {
 /*import net.neoforged.neoforge.client.*;
@@ -61,7 +61,7 @@ public class FogRendererMixin {
 //? if >=1.21.6 {
 
 
-    /*@Inject(method = "updateBuffer", at = @At(value = "HEAD"), cancellable = true)
+    @Inject(method = "updateBuffer", at = @At(value = "HEAD"), cancellable = true)
     private void alwaysSpectatorFog(ByteBuffer buffer, int position, Vector4f fogColor, float environmentalStart, float environmentalEnd, float renderDistanceStart, float renderDistanceEnd, float skyEnd, float cloudEnd, CallbackInfo ci) {
         if (ClearviewsConfig.CONFIG.instance().useRenderDistanceFog) {
 
@@ -79,7 +79,7 @@ public class FogRendererMixin {
         }
     }
 
- *///?}
+ //?}
 
 //? if <=1.21.5 && >=1.21.3 {
 
@@ -137,7 +137,7 @@ public class FogRendererMixin {
 
 //? if 1.21.1 {
 
-    @Shadow @Final private static List<FogRenderer.MobEffectFogFunction> MOB_EFFECT_FOG;
+    /*@Shadow @Final private static List<FogRenderer.MobEffectFogFunction> MOB_EFFECT_FOG;
 
     @Inject(method = "setupFog", at = @At("HEAD"), cancellable = true)
     private static void alwaysSpectatorFog(Camera camera, FogRenderer.FogMode fogMode, float farPlaneDistance, boolean shouldCreateFog, float partialTick, CallbackInfo cir) {
@@ -159,8 +159,8 @@ public class FogRendererMixin {
                         RenderSystem.setShaderFogShape(fogShape);
 
                         //? if neoforge && 1.21.1 {
-                        /*ClientHooks.onFogRender(fogMode, fogType, camera, partialTick, farPlaneDistance, getInstance().renderDistanceFogStart, getInstance().renderDistanceFogEnd, fogShape);
-                        *///?}
+                        /^ClientHooks.onFogRender(fogMode, fogType, camera, partialTick, farPlaneDistance, getInstance().renderDistanceFogStart, getInstance().renderDistanceFogEnd, fogShape);
+                        ^///?}
 
                         cir.cancel();
 
@@ -177,8 +177,8 @@ public class FogRendererMixin {
                 RenderSystem.setShaderFogShape(fogShape);
 
                 //? if neoforge && 1.21.1 {
-                /*ClientHooks.onFogRender(fogMode, fogType, camera, partialTick, farPlaneDistance, getInstance().powderSnowFogStart, getInstance().powderSnowFogEnd, fogShape);
-                *///?}
+                /^ClientHooks.onFogRender(fogMode, fogType, camera, partialTick, farPlaneDistance, getInstance().powderSnowFogStart, getInstance().powderSnowFogEnd, fogShape);
+                ^///?}
 
                 cir.cancel();
             }
@@ -192,8 +192,8 @@ public class FogRendererMixin {
                 RenderSystem.setShaderFogShape(fogShape);
 
                 //? if neoforge && 1.21.1 {
-                /*ClientHooks.onFogRender(fogMode, fogType, camera, partialTick, farPlaneDistance, getInstance().lavaFogStart, getInstance().lavaFogEnd, fogShape);
-                *///?}
+                /^ClientHooks.onFogRender(fogMode, fogType, camera, partialTick, farPlaneDistance, getInstance().lavaFogStart, getInstance().lavaFogEnd, fogShape);
+                ^///?}
 
                 cir.cancel();
             }
@@ -207,8 +207,8 @@ public class FogRendererMixin {
                 RenderSystem.setShaderFogShape(fogShape);
 
                 //? if neoforge && 1.21.1 {
-                /*ClientHooks.onFogRender(fogMode, fogType, camera, partialTick, farPlaneDistance, getInstance().waterFogStart, getInstance().waterFogEnd, fogShape);
-                *///?}
+                /^ClientHooks.onFogRender(fogMode, fogType, camera, partialTick, farPlaneDistance, getInstance().waterFogStart, getInstance().waterFogEnd, fogShape);
+                ^///?}
 
                 cir.cancel();
             }
@@ -223,13 +223,13 @@ public class FogRendererMixin {
 
          
 
-    //?}
+    *///?}
 
 
     //? if <=1.21.5 {
 
 
-    @WrapOperation(method = "getPriorityFogFunction", at = @At(value = "INVOKE", target = "Ljava/util/stream/Stream;filter(Ljava/util/function/Predicate;)Ljava/util/stream/Stream;"))
+    /*@WrapOperation(method = "getPriorityFogFunction", at = @At(value = "INVOKE", target = "Ljava/util/stream/Stream;filter(Ljava/util/function/Predicate;)Ljava/util/stream/Stream;"))
     private static Stream<FogRenderer.MobEffectFogFunction> clearviews$filterMobEffects(
             Stream<FogRenderer.MobEffectFogFunction> original,
             Predicate<FogRenderer.MobEffectFogFunction> predicate,
@@ -250,7 +250,7 @@ public class FogRendererMixin {
     }
 
 
-    //?}
+    *///?}
 
 
 }

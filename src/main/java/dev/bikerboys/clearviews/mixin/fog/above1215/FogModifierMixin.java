@@ -9,9 +9,9 @@ import net.minecraft.client.multiplayer.ClientLevel;
 
 //? if >=1.21.6 {
 
-/*import net.minecraft.client.renderer.fog.FogData;
+import net.minecraft.client.renderer.fog.FogData;
 import net.minecraft.client.renderer.fog.environment.*;
-*///?}
+//?}
 
 import net.minecraft.client.renderer.*;
 import net.minecraft.core.BlockPos;
@@ -23,14 +23,14 @@ import org.spongepowered.asm.mixin.injection.callback.CallbackInfo;
 
 //? if >=1.21.6 {
 
-/*@Mixin(value = {WaterFogEnvironment.class,
+@Mixin(value = {WaterFogEnvironment.class,
         LavaFogEnvironment.class,
         BlindnessFogEnvironment.class,
         DarknessFogEnvironment.class,
         AtmosphericFogEnvironment.class,
         DimensionOrBossFogEnvironment.class,
         PowderedSnowFogEnvironment.class})
-*///?}
+//?}
 
 
 public class FogModifierMixin {
@@ -40,7 +40,7 @@ public class FogModifierMixin {
 //? if >=1.21.6 {
 
 
-    /*@Inject(method = "setupFog", at = @At("TAIL"))
+    @Inject(method = "setupFog", at = @At("TAIL"))
     private void modifyFog(FogData fogData, Entity entity, BlockPos pos, ClientLevel level, float renderDistance, DeltaTracker deltaTracker, CallbackInfo ci) {
         FogEnvironment fogEnvironment = (FogEnvironment)(Object)this;
 
@@ -120,7 +120,7 @@ public class FogModifierMixin {
 
 
 
-*///?}
+//?}
 
 
     private ClearviewsConfig getInstance() {
