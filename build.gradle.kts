@@ -33,6 +33,7 @@ class Dependencies {
     val devauthVersion = property("deps.devauth_version")
     val mixinconstraintsVersion = property("deps.mixinconstraints_version")
     val mixinsquaredVersion = property("deps.mixinsquared_version")
+    val parchmentVersion = property("deps.parchment_loader")
 }
 
 class LoaderData {
@@ -141,7 +142,7 @@ dependencies {
 
         // Parchment mappings (it adds parameter mappings & javadoc)
         optionalProp("deps.parchment_version") {
-            parchment("org.parchmentmc.data:parchment-${mc.version}:$it@zip")
+            parchment("org.parchmentmc.data:parchment-${deps.parchmentVersion}:$it@zip")
         }
     })
 

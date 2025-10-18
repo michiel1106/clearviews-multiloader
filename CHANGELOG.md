@@ -1,1 +1,1 @@
-- Fixed a bug where gamma just didnt work. that includes any fullbright/gamma mods.
+- Fixed a bug which made the mod incompatible with feather and some other clients/mods
