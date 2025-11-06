@@ -193,7 +193,9 @@ publishMods {
         modrinth {
 
             projectId = property("publish.modrinth").toString()
-            accessToken = ""
+            accessToken = env.MODRINTH.value
+
+
 
 
 
@@ -223,7 +225,7 @@ publishMods {
     if (curseforgeId != null) {
         curseforge {
             projectId = property("publish.curseforge").toString()
-            accessToken = ""
+            accessToken = env.CURSEFORGE.value
 
             if (rangeRegex.matches(mc.dep)) {
                 val match = rangeRegex.find(mc.dep)!!
