@@ -1,1 +1,1 @@
-- Fixed a bug which made the mod incompatible with feather and some other clients/mods
+- made anti blindness and anti darkness more reliable and fixed them not even working at all on 1.21.9 and 1.21.10

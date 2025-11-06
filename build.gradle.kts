@@ -6,6 +6,7 @@ plugins {
     alias(libs.plugins.ksp)
     alias(libs.plugins.fletchingtable.fabric)
     alias(libs.plugins.fletchingtable.neoforge)
+
 }
 
 class ModData {
