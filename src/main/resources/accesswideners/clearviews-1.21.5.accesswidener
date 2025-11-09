@@ -2,3 +2,5 @@ accessWidener v2 named
 accessible class net/minecraft/client/renderer/FogRenderer$MobEffectFogFunction
 accessible    class    net/minecraft/client/renderer/FogRenderer$BlindnessFogFunction
 accessible    class    net/minecraft/client/renderer/FogRenderer$DarknessFogFunction
+
+accessible class net/minecraft/client/renderer/state/QuadParticleRenderState$Storage

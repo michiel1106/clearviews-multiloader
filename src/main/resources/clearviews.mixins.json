@@ -3,6 +3,8 @@
   "package": "dev.bikerboys.clearviews.mixin",
   "compatibilityLevel": "JAVA_17",
   "client": [
+    "particle.ParticleMixin",
+    "particle.WeatherEffectRendererMixin"
   ],
   "injectors": {
     "defaultRequire": 1

@@ -38,6 +38,8 @@ public class ClearviewsConfig {
     @SerialEntry public boolean disableBossBar = false;
     @SerialEntry public boolean disablePowderedSnowOverlay = true;
 
+    @SerialEntry public float particleOpacityMultiplier = 1.0f;
+    @SerialEntry public float weatherOpacityMultiplier = 1.0f;
 
     @SerialEntry public boolean disableFireOverlay = false;
     @SerialEntry public float fireOpacity = 0.9f;
@@ -108,6 +110,34 @@ public class ClearviewsConfig {
                                 .description(OptionDescription.of(Component.literal("Disables the blindness effect")))
                                 .binding(defaults.disableBlindness, () -> config.disableBlindness, newVal -> config.disableBlindness = newVal)
                                 .controller(TickBoxControllerBuilder::create)
+                                .build())
+
+
+                        .group(OptionGroup.createBuilder()
+                                .name(Component.literal("Particles"))
+
+                                .option(Option.<Float>createBuilder()
+                                        .name(Component.literal("Set Particle Opacity"))
+                                        .description(OptionDescription.of(Component.literal("Sets the particle opacity of all particles that support it.")))
+                                        .binding(defaults.particleOpacityMultiplier, () -> config.particleOpacityMultiplier, newVal -> config.particleOpacityMultiplier = newVal)
+                                        .controller((floatOption -> FloatSliderControllerBuilder.create(floatOption)
+                                                .range(0.0f, 1.0f)
+                                                .step(0.01f)
+                                                .formatValue(ValueFormatters.percent(0))))
+                                        .build())
+
+                                .option(Option.<Float>createBuilder()
+                                        .name(Component.literal("Set Weather Opacity"))
+                                        .description(OptionDescription.of(Component.literal("Sets the particle opacity of all weather types.")))
+                                        .binding(defaults.weatherOpacityMultiplier, () -> config.weatherOpacityMultiplier, newVal -> config.weatherOpacityMultiplier = newVal)
+                                        .controller((floatOption -> FloatSliderControllerBuilder.create(floatOption)
+                                                .range(0.0f, 1.0f)
+                                                .step(0.01f)
+                                                .formatValue(ValueFormatters.percent(0))))
+                                        .build())
+
+
+
                                 .build())
 
 
