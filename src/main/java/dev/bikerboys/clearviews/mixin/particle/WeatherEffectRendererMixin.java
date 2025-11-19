@@ -15,7 +15,6 @@ import java.util.*;
 public class WeatherEffectRendererMixin {
 
 
-
     @WrapOperation(method = "renderInstances", at = @At(value = "INVOKE", target = "Lcom/mojang/blaze3d/vertex/VertexConsumer;setColor(I)Lcom/mojang/blaze3d/vertex/VertexConsumer;"))
     private VertexConsumer setColor(VertexConsumer instance, int color, Operation<VertexConsumer> original) {
 
