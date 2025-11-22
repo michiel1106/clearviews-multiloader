@@ -1,23 +1,23 @@
 package dev.bikerboys.clearviews.mixin.particle;
 
 import com.llamalad7.mixinextras.injector.wrapoperation.*;
+import com.mojang.blaze3d.vertex.*;
 import dev.bikerboys.clearviews.config.*;
-import net.fabricmc.fabric.impl.client.indigo.renderer.helper.*;
-import net.minecraft.*;
-import net.minecraft.client.multiplayer.*;
 import net.minecraft.client.particle.*;
-import net.minecraft.client.renderer.state.*;
-import net.minecraft.client.renderer.texture.*;
-import net.minecraft.commands.arguments.*;
 import org.spongepowered.asm.mixin.*;
 import org.spongepowered.asm.mixin.injection.*;
-import org.spongepowered.asm.mixin.injection.callback.*;
 
-@Mixin(QuadParticleRenderState.class)
+//? if >= 1.21.9 {
+/*@Mixin(QuadParticleRenderState.class)
+*///?} else if <= 1.21.8 {
+@Mixin(SingleQuadParticle.class)
+//?}
 public abstract class ParticleMixin {
 
 
-    @WrapOperation(method = "add", at = @At(value = "INVOKE", target = "Lnet/minecraft/client/renderer/state/QuadParticleRenderState$Storage;add(FFFFFFFFFFFFII)V"))
+    //? if >= 1.21.9 {
+
+    /*@WrapOperation(method = "add", at = @At(value = "INVOKE", target = "Lnet/minecraft/client/renderer/state/QuadParticleRenderState$Storage;add(FFFFFFFFFFFFII)V"))
     private void addmixin(QuadParticleRenderState.Storage instance, float x, float y, float z, float xRot, float yRot, float zRot, float wRot, float quadSize, float u0, float u1, float v0, float v1, int color, int packedLight, Operation<Void> original) {
 
         int a = (color >> 24) & 0xFF;
@@ -30,12 +30,21 @@ public abstract class ParticleMixin {
         int newColor = (newA << 24) | (r << 16) | (g << 8) | b;
 
         original.call(instance, x, y, z, xRot, yRot, zRot, wRot, quadSize, u0, u1, v0, v1, newColor, packedLight);
-
-
-
-
-
     }
+    *///?} else if <= 1.21.8 {
+
+    @WrapOperation(method = "renderVertex", at = @At(value = "INVOKE", target = "Lcom/mojang/blaze3d/vertex/VertexConsumer;setColor(FFFF)Lcom/mojang/blaze3d/vertex/VertexConsumer;"))
+    private VertexConsumer args(VertexConsumer instance, float red, float green, float blue, float alpha, Operation<VertexConsumer> original) {
+
+        float newA = (alpha * ClearviewsConfig.CONFIG.instance().particleOpacityMultiplier);
+
+        return original.call(instance, red, green, blue, newA);
+    }
+
+
+
+
+    //?}
 
 
 }

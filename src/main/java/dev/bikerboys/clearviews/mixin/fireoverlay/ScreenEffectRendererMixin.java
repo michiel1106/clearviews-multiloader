@@ -22,13 +22,13 @@ public class ScreenEffectRendererMixin {
 
     //? if >=1.21.4 && <=1.21.8 {
 
-    /*@Inject(method = "renderFire", at = @At("HEAD"), cancellable = true)
+    @Inject(method = "renderFire", at = @At("HEAD"), cancellable = true)
     private static void stopthatrenderingplease(PoseStack poseStack, MultiBufferSource bufferSource, CallbackInfo ci) {
         if (ClearviewsConfig.CONFIG.instance().disableFireOverlay) {
             ci.cancel();
         }
     }
-    *///?} else if <=1.21.3 && >=1.21.0 {
+    //?} else if <=1.21.3 && >=1.21.0 {
 
     /*@Inject(method = "renderFire", at = @At("HEAD"), cancellable = true)
     private static void stopthatrenderingplease(Minecraft minecraft, PoseStack poseStack, CallbackInfo ci) {
@@ -41,7 +41,7 @@ public class ScreenEffectRendererMixin {
 
 
     //? if >=1.21.9 {
-        @Inject(method = "renderFire", at = @At("HEAD"), cancellable = true)
+        /*@Inject(method = "renderFire", at = @At("HEAD"), cancellable = true)
     private static void stopthatrenderingplease(PoseStack poseStack, MultiBufferSource bufferSource, TextureAtlasSprite sprite, CallbackInfo ci) {
         if (ClearviewsConfig.CONFIG.instance().disableFireOverlay) {
             ci.cancel();
@@ -49,7 +49,7 @@ public class ScreenEffectRendererMixin {
     }
 
          
-    //?}
+    *///?}
 
     @WrapOperation(method = "renderFire", at = @At(value = "INVOKE", target = "Lcom/mojang/blaze3d/vertex/VertexConsumer;setColor(FFFF)Lcom/mojang/blaze3d/vertex/VertexConsumer;"))
     private static VertexConsumer makeTransparent(VertexConsumer instance, float red, float green, float blue, float alpha, Operation<VertexConsumer> original) {
