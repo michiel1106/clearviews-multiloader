@@ -77,8 +77,8 @@ public class ClearviewsConfig {
           *///?}
 
     //? if >= 1.21.9 {
-    /*@SerialEntry public boolean disableEndFlashes = false;
-    *///?}
+    @SerialEntry public boolean disableEndFlashes = false;
+    //?}
 
     @SerialEntry public boolean useAtmosphericFog = true;
     @SerialEntry public float atmosphericFogStart = 1000f;
@@ -147,13 +147,13 @@ public class ClearviewsConfig {
 
                         //? if >= 1.21.9 {
 
-                        /*.option(Option.<Boolean>createBuilder()
+                        .option(Option.<Boolean>createBuilder()
                                 .name(Component.literal("Disable End Flashes"))
                                 .description(OptionDescription.of(Component.literal("Disables the end flashes")))
                                 .binding(defaults.disableEndFlashes, () -> config.disableEndFlashes, newVal -> config.disableEndFlashes = newVal)
                                 .controller(TickBoxControllerBuilder::create)
                                 .build())
-                        *///?}
+                        //?}
 
                         .group(OptionGroup.createBuilder()
                                 .name(Component.literal("Fire"))

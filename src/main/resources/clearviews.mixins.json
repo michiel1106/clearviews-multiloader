@@ -3,7 +3,7 @@
   "package": "dev.bikerboys.clearviews.mixin",
   "compatibilityLevel": "JAVA_17",
   "client": [
-    "endflash.SkyRendererMixin"
+
   ],
   "injectors": {
     "defaultRequire": 1

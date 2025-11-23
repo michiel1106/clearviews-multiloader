@@ -4,17 +4,17 @@ import com.llamalad7.mixinextras.injector.wrapoperation.*;
 import com.mojang.blaze3d.vertex.*;
 import dev.bikerboys.clearviews.config.*;
 import net.minecraft.client.renderer.*;
-import net.minecraft.world.phys.*;
 import org.spongepowered.asm.mixin.*;
 import org.spongepowered.asm.mixin.injection.*;
-import org.spongepowered.asm.mixin.injection.callback.*;
 
-import java.util.*;
-
+//? if >= 1.21.2 {
 @Mixin(WeatherEffectRenderer.class)
+//?} else if <= 1.21.1 {
+/*@Mixin(LevelRenderer.class)
+*///?}
 public class WeatherEffectRendererMixin {
 
-
+    //? if >= 1.21.2 {
     @WrapOperation(method = "renderInstances", at = @At(value = "INVOKE", target = "Lcom/mojang/blaze3d/vertex/VertexConsumer;setColor(I)Lcom/mojang/blaze3d/vertex/VertexConsumer;"))
     private VertexConsumer setColor(VertexConsumer instance, int color, Operation<VertexConsumer> original) {
 
@@ -31,4 +31,20 @@ public class WeatherEffectRendererMixin {
 
 
     }
+    //?}
+
+    //? if <= 1.21.1 {
+
+    /*@WrapOperation(method = "renderSnowAndRain", at = @At(value = "INVOKE", target = "Lcom/mojang/blaze3d/vertex/VertexConsumer;setColor(FFFF)Lcom/mojang/blaze3d/vertex/VertexConsumer;"))
+    private VertexConsumer setColorMixin(VertexConsumer instance, float red, float green, float blue, float alpha, Operation<VertexConsumer> original) {
+
+        float b = alpha * ClearviewsConfig.CONFIG.instance().weatherOpacityMultiplier;
+
+
+        return original.call(instance, red, green, blue, b);
+    }
+
+
+    *///?}
+
 }

@@ -28,17 +28,13 @@ import org.spongepowered.asm.mixin.injection.Inject;
 import org.spongepowered.asm.mixin.injection.callback.CallbackInfo;
 import org.spongepowered.asm.mixin.injection.callback.CallbackInfoReturnable;
 
-@Mixin(GameRenderer.class)
-@Debug(export = true)
+@Mixin(value = GameRenderer.class)
 public abstract class GamerrendererMixin {
 
     //? if >=1.21.6 {
     
     @Shadow @Final private FogRenderer fogRenderer;
    //?}
-
-
-    @Shadow public abstract void renderLevel(DeltaTracker deltaTracker);
 
     @WrapOperation(method = "renderLevel", at = @At(value = "INVOKE", target = "Lorg/joml/Matrix4f;rotate(FLorg/joml/Vector3fc;)Lorg/joml/Matrix4f;", ordinal = 0))
     private Matrix4f stopNauseaOverlayRotate(Matrix4f instance, float angle, Vector3fc axis, Operation<Matrix4f> original) {

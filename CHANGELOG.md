@@ -1,1 +1,3 @@
-- made anti blindness and anti darkness more reliable and fixed them not even working at all on 1.21.9 and 1.21.10
+- Added a slider that allows you to customize the opacity (alpha) of particles and weather.
+- Added a toggle for the end flashes
+- Removed some redundant classes/mixins
