@@ -1,3 +1,1 @@
-- Added a slider that allows you to customize the opacity (alpha) of particles and weather.
-- Added a toggle for the end flashes
-- Removed some redundant classes/mixins
+- Fixed a bug where the game didnt even start up at all.

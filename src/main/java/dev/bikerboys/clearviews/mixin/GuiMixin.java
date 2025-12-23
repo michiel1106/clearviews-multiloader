@@ -5,7 +5,11 @@ import com.llamalad7.mixinextras.injector.wrapoperation.WrapOperation;
 import dev.bikerboys.clearviews.config.ClearviewsConfig;
 import net.minecraft.client.gui.Gui;
 import net.minecraft.client.gui.GuiGraphics;
+//? if <= 1.21.10 {
 import net.minecraft.resources.ResourceLocation;
+//?} else {
+/*import net.minecraft.resources.Identifier;
+*///?}
 import net.minecraft.world.entity.Entity;
 import net.minecraft.world.item.*;
 import org.spongepowered.asm.mixin.Debug;
@@ -21,9 +25,11 @@ import java.util.Optional;
 @Mixin(Gui.class)
 @Debug(export = true)
 public class GuiMixin  {
-
+    //? if <= 1.21.10 {
     @Shadow @Final private static ResourceLocation POWDER_SNOW_OUTLINE_LOCATION;
-
+    //?} else {
+    /*@Shadow @Final private static Identifier POWDER_SNOW_OUTLINE_LOCATION;
+    *///?}
     @Inject(method = "renderSpyglassOverlay", at = @At("HEAD"), cancellable = true)
     private void stopSpyglassOverlay(GuiGraphics guiGraphics, float scopeScale, CallbackInfo ci) {
         if (ClearviewsConfig.CONFIG.instance().removeSpyglassBorder) {
@@ -58,9 +64,13 @@ public class GuiMixin  {
 
     *///?}
 
-
+    //? if <= 1.21.10 {
     @Inject(method = "renderTextureOverlay", at = @At(value = "HEAD"), cancellable = true)
     private void stoppowderedsnow(GuiGraphics guiGraphics, ResourceLocation shaderLocation, float alpha, CallbackInfo ci) {
+        //?} else {
+        /*@Inject(method = "renderTextureOverlay", at = @At(value = "HEAD"), cancellable = true)
+        private void stoppowderedsnow(GuiGraphics guiGraphics, Identifier shaderLocation, float alpha, CallbackInfo ci) {
+        *///?}
         if (ClearviewsConfig.CONFIG.instance().disablePowderedSnowOverlay) {
             if (shaderLocation.equals(POWDER_SNOW_OUTLINE_LOCATION)) {
             ci.cancel();
