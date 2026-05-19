@@ -12,7 +12,9 @@ pluginManagement {
 }
 
 plugins {
-	id("dev.kikugie.stonecutter") version "0.7.5"
+	id("dev.kikugie.stonecutter") version "0.9.4"
+	id("dev.kikugie.loom-back-compat") version "0.3"
+
 }
 
 stonecutter {
@@ -22,7 +24,7 @@ stonecutter {
 	create(rootProject) {
 		fun mc(mcVersion: String, loaders: Iterable<String>) {
 			for (loader in loaders) {
-				vers("$mcVersion-$loader", mcVersion)
+				version("$mcVersion-$loader", mcVersion)
 			}
 		}
 
@@ -36,6 +38,7 @@ stonecutter {
 		mc("1.21.9", listOf("fabric", "neoforge"))
 		mc("1.21.10", listOf("fabric", "neoforge"))
 		mc("1.21.11", listOf("fabric", "neoforge"))
+		mc("26.1.2", listOf("fabric"))
 
 		vcsVersion = "1.21.10-fabric"
 	}

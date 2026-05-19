@@ -6,7 +6,6 @@ plugins {
     alias(libs.plugins.ksp)
     alias(libs.plugins.fletchingtable.fabric)
     alias(libs.plugins.fletchingtable.neoforge)
-
 }
 
 class ModData {
@@ -34,7 +33,7 @@ class Dependencies {
     val devauthVersion = property("deps.devauth_version")
     val mixinconstraintsVersion = property("deps.mixinconstraints_version")
     val mixinsquaredVersion = property("deps.mixinsquared_version")
-    val parchmentVersion = property("deps.parchment_loader")
+    val parchmentVersion = findProperty("deps.parchment_loader")
 }
 
 class LoaderData {
@@ -55,6 +54,7 @@ val loader = LoaderData()
 
 val minecraft = stonecutter.current.version
 val accesswidener = when {
+    stonecutter.eval(minecraft, "26.1.2") -> "clearviews-26.1.2.accesswidener"
     stonecutter.eval(minecraft, "1.21.11") -> "clearviews-1.21.11.accesswidener"
     stonecutter.eval(minecraft, "1.21.10") -> "clearviews-1.21.10.accesswidener"
     stonecutter.eval(minecraft, "1.21.9") -> "clearviews-1.21.10.accesswidener"
@@ -142,11 +142,16 @@ dependencies {
     @Suppress("UnstableApiUsage")
     mappings(loom.layered {
         // Mojmap mappings
-        officialMojangMappings()
+
+        if (stonecutter.eval(minecraft, "<26.1")) {
+            officialMojangMappings()
+        }
 
         // Parchment mappings (it adds parameter mappings & javadoc)
-        optionalProp("deps.parchment_version") {
-            parchment("org.parchmentmc.data:parchment-${deps.parchmentVersion}:$it@zip")
+        if (stonecutter.eval(minecraft, "<26.1")) {
+            optionalProp("deps.parchment_version") {
+                parchment("org.parchmentmc.data:parchment-${deps.parchmentVersion}:$it@zip")
+            }
         }
     })
 
@@ -255,9 +260,12 @@ publishMods {
 }
 
 java {
-    // withSourcesJar() // Uncomment if you want sources
-    sourceCompatibility = JavaVersion.VERSION_21
-    targetCompatibility = JavaVersion.VERSION_21
+    val javaVersion = when {
+        stonecutter.eval(minecraft, ">=26.1") -> JavaVersion.VERSION_25
+        else -> JavaVersion.VERSION_21
+    }
+    sourceCompatibility = javaVersion
+    targetCompatibility = javaVersion
 }
 
 tasks.processResources {

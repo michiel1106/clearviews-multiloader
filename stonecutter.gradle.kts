@@ -1,19 +1,26 @@
-import dev.kikugie.stonecutter.data.tree.struct.ProjectNode
-
 plugins {
     id("dev.kikugie.stonecutter")
     id("co.uzzu.dotenv.gradle") version "4.0.0"
     alias(libs.plugins.publishing)
 }
 
-stonecutter active "1.21.10-fabric" /* [SC] DO NOT EDIT */
+stonecutter active "26.1.2-fabric" /* [SC] DO NOT EDIT */
 
-stonecutter tasks {
-    val ordering = Comparator
-        .comparing<ProjectNode, _> { stonecutter.parse(it.metadata.version) }
-        .thenComparingInt { if (it.metadata.project.endsWith("fabric")) 1 else 0 }
+stonecutter parameters {
+    swaps["mod_version"] = "\"${property("mod.version")}\";"
+    swaps["minecraft"] = "\"${node.metadata.version}\";"
+    constants["release"] = property("mod.id") != "template"
 
-    order("publishMods", ordering)
+    replacements {
+        // For 1.21.11+: ResourceLocation → Identifier
+        string(current.parsed >= "1.21.11") {
+            replace("ResourceLocation", "Identifier")
+        }
+        // For 26.1+: official mappings instead of named
+        string(current.parsed >= "26.1") {
+            replace("classTweaker v1 named", "classTweaker v1 official")
+        }
+    }
 }
 
 tasks.named("publishMods") {
