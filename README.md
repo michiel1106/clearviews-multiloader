@@ -7,7 +7,7 @@ This is a small section that I can read back on to see what I must change betwee
 1. Update fabric.mod.json dependency versions
 2. Update gradle.properties fabric API, mod menu api and YACL3 api versions to the relevant version.
 3. Possibly update MIXIN and build.gradle JAVA versions to whatever minecraft is using.
-
+4. Check if mixins are still working.
 
 
 ## Setup
