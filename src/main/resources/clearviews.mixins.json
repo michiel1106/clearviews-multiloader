@@ -1,6 +1,6 @@
 {
 	"required": true,
-	"package": "bikerboys.clearviews.mixin",
+	"package": "bikerboys.clearviews.client.mixin",
 	"compatibilityLevel": "JAVA_25",
 	"mixins": [
 		"ExampleMixin"

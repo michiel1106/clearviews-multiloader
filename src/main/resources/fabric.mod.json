@@ -3,23 +3,23 @@
 	"id": "clearviews",
 	"version": "${version}",
 	"name": "Clearviews",
-	"description": "This is an example description! Tell everyone what your mod is about!",
+	"description": "removes the annoying blindness/nausea/darkness effects and removes overlays like water fog, pumpkin, spyglass, portal overlay etc. Compatible with sodium and highly configurable.",
 	"authors": [
-		"Me!"
+		"Bikerboys"
 	],
 	"contact": {
-		"homepage": "https://fabricmc.net/",
-		"sources": "https://github.com/FabricMC/fabric-example-mod"
+		"homepage": "https://modrinth.com/mod/clearviews",
+		"sources": "https://github.com/michiel1106/clearviews-multiloader"
 	},
-	"license": "CC0-1.0",
+	"license": "MIT",
 	"icon": "assets/clearviews/icon.png",
 	"environment": "*",
 	"entrypoints": {
-		"main": [
-			"bikerboys.clearviews.Clearviews"
-		],
 		"client": [
-			"bikerboys.clearviews.client.ClearviewsClient"
+			"bikerboys.clearviews.client.Clearviews"
+		],
+		"modmenu": [
+			"bikerboys.clearviews.client.ModMenuIntegration"
 		]
 	},
 	"mixins": [
@@ -29,10 +29,23 @@
 			"environment": "client"
 		}
 	],
+	"accessWidener": "clearviews.classtweaker",
 	"depends": {
 		"fabricloader": ">=0.19.3",
 		"minecraft": "~26.1.2",
 		"java": ">=25",
-		"fabric-api": "*"
+		"fabric-api": "*",
+		"yet_another_config_lib_v3": ">=3.9"
+	},
+	"custom": {
+		"modmenu": {
+			"links": {
+				"modmenu.kofi": "https://ko-fi.com/bikerboys",
+				"modmenu.discord": "https://discord.gg/p6ShJPq98d",
+				"modmenu.modrinth": "https://modrinth.com/mod/clearviews",
+				"modmenu.curseforge": "https://www.curseforge.com/minecraft/mc-mods/clearviews"
+			},
+			"update_checker": true
+		}
 	}
 }
