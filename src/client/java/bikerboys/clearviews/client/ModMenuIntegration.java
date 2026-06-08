@@ -1,6 +1,7 @@
 package bikerboys.clearviews.client;
 
 
+import bikerboys.clearviews.client.screen.*;
 import com.terraformersmc.modmenu.api.ConfigScreenFactory;
 import com.terraformersmc.modmenu.api.ModMenuApi;
 
@@ -12,6 +13,6 @@ import net.fabricmc.api.Environment;
 public class ModMenuIntegration implements ModMenuApi {
     @Override
     public ConfigScreenFactory<?> getModConfigScreenFactory() {
-        return bikerboys.clearviews.client.config.ClearviewsConfig::configScreen;
+        return (_ -> new ConfigScreen());
     }
 }
