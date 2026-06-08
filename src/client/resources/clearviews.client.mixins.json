@@ -11,6 +11,9 @@
     "requireAnnotations": true
   },
   "mixins": [
+    "GamerrendererMixin",
+    "GuiMixin",
+    "LevelRendererMixin",
     "bossbar.BossHealthOverlayMixin",
     "darkness.FogRendererMixin",
     "endflash.SkyRendererMixin",

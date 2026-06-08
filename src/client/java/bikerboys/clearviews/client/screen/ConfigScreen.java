@@ -15,7 +15,7 @@ public class ConfigScreen extends Screen {
     @Override
     protected void init() {
         super.init();
-        addRenderableWidget(new AbstractConfigWidget(width/2, height/2, 100, 50, Identifier.fromNamespaceAndPath("clearviews", "hud/unknown_pack")) {
+        addRenderableWidget(new AbstractConfigWidget(width/2 - 150, height/2 + 100, 150, 100, Identifier.fromNamespaceAndPath("clearviews", "hud/unknown_pack")) {
 
 
         });
