@@ -59,7 +59,7 @@ public abstract class GamerrendererMixin {
     
     
     @Inject(method = "renderLevel", at = @At("HEAD"))
-    private void changethedarknessandyeahjustremovetheblindnessanddarkness(DeltaTracker deltaTracker, CallbackInfo ci) {
+    private void changethedarknessandyeahjustremovetheblindnessanddarkness(CallbackInfo ci) {
 
         if (ClearviewsConfig.CONFIG.instance().disableDarkness) {
             ((FogRendererMixin) fogRenderer).getFogEnviroments().removeIf((env -> env instanceof DarknessFogEnvironment));
