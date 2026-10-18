@@ -36,6 +36,7 @@ public class ClearviewsConfig {
 
     @SerialEntry public float particleOpacityMultiplier = 1.0f;
     @SerialEntry public float weatherOpacityMultiplier = 1.0f;
+    @SerialEntry public boolean disableRainGroundParticles = false;
 
     @SerialEntry public boolean disableFireOverlay = false;
     @SerialEntry public float fireOpacity = 0.9f;
@@ -121,11 +122,15 @@ public class ClearviewsConfig {
                                                 .formatValue(ValueFormatters.percent(0))))
                                         .build())
 
-
+                                .option(Option.<Boolean>createBuilder()
+                                        .name(Component.literal("Disable Ground Rain Particles"))
+                                        .description(OptionDescription.of(Component.literal("Disables the ground Rain effect")))
+                                        .binding(defaults.disableRainGroundParticles, () -> config.disableRainGroundParticles, newVal -> config.disableRainGroundParticles = newVal)
+                                        .controller(TickBoxControllerBuilder::create)
+                                        .build())
 
                                 .build())
 
-                        //? if >= 1.21.9 {
 
                         .option(Option.<Boolean>createBuilder()
                                 .name(Component.literal("Disable End Flashes"))
@@ -133,7 +138,6 @@ public class ClearviewsConfig {
                                 .binding(defaults.disableEndFlashes, () -> config.disableEndFlashes, newVal -> config.disableEndFlashes = newVal)
                                 .controller(TickBoxControllerBuilder::create)
                                 .build())
-                        //?}
 
                         .group(OptionGroup.createBuilder()
                                 .name(Component.literal("Fire"))

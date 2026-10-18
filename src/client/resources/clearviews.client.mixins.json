@@ -13,6 +13,7 @@
   "mixins": [
     "GamerrendererMixin",
     "GuiMixin",
+    "OptionsScreenMixin",
     "bossbar.BossHealthOverlayMixin",
     "darkness.FogRendererMixin",
     "endflash.SkyRendererMixin",
@@ -20,6 +21,7 @@
     "fog.FogRendererMixin",
     "fog.above1215.FogModifierMixin",
     "locator.LocatorBarRendererMixin",
+    "particle.ClientLevelMixin",
     "particle.ParticleMixin",
     "particle.WeatherEffectRendererMixin"
   ]
